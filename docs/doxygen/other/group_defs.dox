@@ -1,0 +1,7 @@
+/*!
+ * \defgroup block GNU Radio RFTAP C++ Signal Processing Blocks
+ * \brief All C++ blocks that can be used from the RFTAP GNU Radio
+ *        module are listed here or in the subcategories below.
+ *
+ */
+
