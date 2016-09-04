@@ -1,1 +1,17 @@
-For examples, see: https://rftap.github.io/
+
+examples that require gr-rds, rtl-sdr:
+
+rds_rx_rftap.grc - rds rftap demo with custom dissector
+rds.lua - custom wireshark lua dissector to be used with demo
+rds_rftap_sample.pcap - sample rds pcap file for wireshark
+
+
+
+examples that require gr-ieee-80211, USRP B200/N200/..:
+
+wifi_rx_rftap.grc - wifi rftap demo, extracts doppler (offset) frequency
+
+
+
+For examples, walk-throughs, tutorials see:
+https://rftap.github.io/
