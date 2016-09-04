@@ -120,6 +120,22 @@ class rftap_encap(gr.basic_block):
                 b.fromstring(struct.pack('<d', val))
                 flags |= (1<<3)
 
+        if 'power' in d:
+            val = d.get('power')
+            if not isinstance(val, (float,int,long)):
+                print "[ERROR] power is not a number:", repr(val)
+            else:
+                b.fromstring(struct.pack('<f', val))
+                flags |= (1<<5)
+
+        if 'noise' in d:
+            val = d.get('noise')
+            if not isinstance(val, (float,int,long)):
+                print "[ERROR] noise is not a number:", repr(val)
+            else:
+                b.fromstring(struct.pack('<f', val))
+                flags |= (1<<6)
+
         if 'snr' in d:
             val = d.get('snr')
             if not isinstance(val, (float,int,long)):
@@ -127,6 +143,14 @@ class rftap_encap(gr.basic_block):
             else:
                 b.fromstring(struct.pack('<f', val))
                 flags |= (1<<7)
+
+        if 'qual' in d:
+            val = d.get('qual')
+            if not isinstance(val, (float,int,long)):
+                print "[ERROR] qual is not a number:", repr(val)
+            else:
+                b.fromstring(struct.pack('<f', val))
+                flags |= (1<<8)
 
         # tagged parameters:
 

@@ -11,6 +11,18 @@ examples that require gr-ieee-80211, USRP B200/N200/..:
 
 wifi_rx_rftap.grc - wifi rftap demo, extracts doppler (offset) frequency
 
+You may need to modify the receive channel in the GUI.
+
+
+
+examples that require gr-ieee-802154, USRP B200/N200/..:
+
+zigbee_rftap.grc - zigbee rftap demo, metadata includes link quality metric (qual)
+ieee802_15_4_OQPSK_PHY.grc - you need to open this hierarchical block first and click "build". It will generate a .py file. Then you can run the Zigbee demo.
+
+Tested to work out-of-the-box with some Zigbee light bulb.
+You may need to modify the receive channel in the GUI.
+
 
 
 For examples, walk-throughs, tutorials see:
