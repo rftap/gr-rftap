@@ -37,4 +37,6 @@ To manually install the blocks do
 
 ## Usage, Demos and Further information
 
+See RDS and Wi-Fi flowgraphs in examples/ directory.
+
 See: https://rftap.github.io/
