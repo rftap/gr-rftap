@@ -313,7 +313,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(880, 216)</value>
+      <value>(1040, 216)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -409,6 +409,67 @@
     <param>
       <key>type</key>
       <value>"UDP_SERVER"</value>
+    </param>
+  </block>
+  <block>
+    <key>epy_block</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_io_cache</key>
+      <value>('LQI to qual', 'blk', [], [('in', 'message')], [('out', 'message')], 'Convert Zigbee Link Quality Indicator (LQI) (0..255) \n       to RFtap signal quality field (qual) (0.0..1.0)', [])</value>
+    </param>
+    <param>
+      <key>_source_code</key>
+      <value>
+import numpy as np
+from gnuradio import gr
+import pmt
+
+class blk(gr.basic_block):
+    """Convert Zigbee Link Quality Indicator (LQI) (0..255) 
+       to RFtap signal quality field (qual) (0.0..1.0)"""
+
+    def __init__(self):
+        gr.basic_block.__init__(
+            self,
+            name='LQI to qual',   # will show up in GRC
+            in_sig=[],
+            out_sig=[]
+        )
+        self.message_port_register_in(pmt.intern('in'))
+        self.set_msg_handler(pmt.intern('in'), self.handle_msg)
+        self.message_port_register_out(pmt.intern('out'))
+
+    def handle_msg(self, pdu):
+        meta, data = pmt.to_python(pdu)
+        meta['qual'] = meta['lqi'] / 255.0
+        pduout = pmt.cons(pmt.to_pmt(meta), pmt.to_pmt(data))
+        self.message_port_pub(pmt.intern('out'), pduout)
+
+</value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(664, 240)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>epy_block_0</value>
     </param>
   </block>
   <block>
@@ -732,7 +793,7 @@
     </param>
     <param>
       <key>custom_dlt</key>
-      <value>-1</value>
+      <value>195</value>
     </param>
     <param>
       <key>custom_dissector_name</key>
@@ -744,7 +805,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(672, 236)</value>
+      <value>(816, 228)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -764,7 +825,7 @@
     </param>
     <param>
       <key>encapsulation_from</key>
-      <value>0</value>
+      <value>2</value>
     </param>
   </block>
   <block>
@@ -3045,6 +3106,12 @@
     <sink_key>bcin</sink_key>
   </connection>
   <connection>
+    <source_block_id>epy_block_0</source_block_id>
+    <sink_block_id>rftap_rftap_encap_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>in</sink_key>
+  </connection>
+  <connection>
     <source_block_id>foo_packet_pad_0</source_block_id>
     <sink_block_id>ieee802_15_4_oqpsk_phy_0</sink_block_id>
     <source_key>0</source_key>
@@ -3076,6 +3143,12 @@
   </connection>
   <connection>
     <source_block_id>ieee802_15_4_oqpsk_phy_0</source_block_id>
+    <sink_block_id>epy_block_0</sink_block_id>
+    <source_key>rxout</source_key>
+    <sink_key>in</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>ieee802_15_4_oqpsk_phy_0</source_block_id>
     <sink_block_id>foo_wireshark_connector_0</sink_block_id>
     <source_key>rxout</source_key>
     <sink_key>in</sink_key>
@@ -3085,12 +3158,6 @@
     <sink_block_id>ieee802_15_4_mac_0</sink_block_id>
     <source_key>rxout</source_key>
     <sink_key>pdu in</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>ieee802_15_4_oqpsk_phy_0</source_block_id>
-    <sink_block_id>rftap_rftap_encap_0</sink_block_id>
-    <source_key>rxout</source_key>
-    <sink_key>in</sink_key>
   </connection>
   <connection>
     <source_block_id>ieee802_15_4_oqpsk_phy_0</source_block_id>
