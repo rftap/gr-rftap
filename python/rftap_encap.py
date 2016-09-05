@@ -74,6 +74,9 @@ class rftap_encap(gr.basic_block):
         hdr = struct.pack('<4sHH', 'RFta', 0, 0)  # len, flags written below
         b.fromstring(hdr)
 
+        if 'dlt' in d and d['dlt'] == 195:
+            d['qual'] = d['lqi'] / 255.0
+
         # this should be done in order of the bitfield:
 
         # dlt from PDU
