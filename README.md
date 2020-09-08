@@ -12,11 +12,7 @@ See: https://rftap.github.io/
 
 ### GNU Radio
 
-There are several ways to install GNU Radio. You can use
-
-- [pybombs](http://gnuradio.org/redmine/projects/pybombs/wiki) (recommended)
-- [pre-combiled binaries](http://gnuradio.org/redmine/projects/gnuradio/wiki/BinaryPackages)
-- [from source](http://gnuradio.org/redmine/projects/gnuradio/wiki/InstallingGRFromSource)
+There are several ways to install GNU Radio. Check out the [wiki page](https://wiki.gnuradio.org/index.php/InstallingGR) for detailed instructions.
 
 ### Simple Installation of gr-rftap using Package Manager
 
@@ -33,7 +29,6 @@ To manually install the blocks do
     cmake ..
     make
     sudo make install
-    sudo ldconfig
 
 ## Usage, Demos and Further information
 
