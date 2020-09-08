@@ -178,9 +178,7 @@ add_custom_target(uninstall
 ########################################################################
 # Add subdirectories
 ########################################################################
-add_subdirectory(include/rftap)
-add_subdirectory(lib)
-add_subdirectory(swig)
+add_subdirectory(docs)
 add_subdirectory(python)
 add_subdirectory(grc)
 add_subdirectory(apps)
