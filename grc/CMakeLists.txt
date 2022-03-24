@@ -19,5 +19,5 @@
 # Boston, MA 02110-1301, USA.
 
 install(FILES
-    rftap_rftap_encap.xml DESTINATION share/gnuradio/grc/blocks
+    rftap_rftap_encap.block.yml DESTINATION share/gnuradio/grc/blocks
 )

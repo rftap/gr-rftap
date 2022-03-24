@@ -27,7 +27,7 @@ from __future__ import unicode_literals
 # import swig generated symbols into the rftap namespace
 try:
     # this might fail if the module is python-only
-    from .rftap_swig import *
+    from .rftap_python import *
 except ImportError:
     pass
 
