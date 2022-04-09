@@ -1498,7 +1498,7 @@
     </param>
     <param>
       <key>taps</key>
-      <value>firdes.low_pass(1.0,baseband_rate,13e3,3e3,firdes.WIN_HAMMING)</value>
+      <value>firdes.low_pass(1.0,baseband_rate,13e3,3e3,window.WIN_HAMMING)</value>
     </param>
     <param>
       <key>type</key>
@@ -1553,7 +1553,7 @@
     </param>
     <param>
       <key>taps</key>
-      <value>firdes.complex_band_pass(1.0,baseband_rate,19e3-500,19e3+500,1e3,firdes.WIN_HAMMING)</value>
+      <value>firdes.complex_band_pass(1.0,baseband_rate,19e3-500,19e3+500,1e3,window.WIN_HAMMING)</value>
     </param>
     <param>
       <key>type</key>
@@ -1608,7 +1608,7 @@
     </param>
     <param>
       <key>taps</key>
-      <value>firdes.band_pass(1.0,baseband_rate,38e3-13e3,38e3+13e3,3e3,firdes.WIN_HAMMING)</value>
+      <value>firdes.band_pass(1.0,baseband_rate,38e3-13e3,38e3+13e3,3e3,window.WIN_HAMMING)</value>
     </param>
     <param>
       <key>type</key>
@@ -1663,7 +1663,7 @@
     </param>
     <param>
       <key>taps</key>
-      <value>firdes.low_pass(1.0,baseband_rate,20e3,40e3,firdes.WIN_HAMMING)</value>
+      <value>firdes.low_pass(1.0,baseband_rate,20e3,40e3,window.WIN_HAMMING)</value>
     </param>
     <param>
       <key>type</key>
@@ -1781,7 +1781,7 @@
     </param>
     <param>
       <key>taps</key>
-      <value>firdes.low_pass(2500.0,baseband_rate,2.4e3,2e3,firdes.WIN_HAMMING)</value>
+      <value>firdes.low_pass(2500.0,baseband_rate,2.4e3,2e3,window.WIN_HAMMING)</value>
     </param>
     <param>
       <key>type</key>

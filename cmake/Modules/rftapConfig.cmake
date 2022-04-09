@@ -22,9 +22,10 @@ FIND_LIBRARY(
           /usr/local/lib64
           /usr/lib
           /usr/lib64
-)
+          )
+
+include("${CMAKE_CURRENT_LIST_DIR}/rftapTarget.cmake")
 
 INCLUDE(FindPackageHandleStandardArgs)
 FIND_PACKAGE_HANDLE_STANDARD_ARGS(RFTAP DEFAULT_MSG RFTAP_LIBRARIES RFTAP_INCLUDE_DIRS)
 MARK_AS_ADVANCED(RFTAP_LIBRARIES RFTAP_INCLUDE_DIRS)
-
